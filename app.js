@@ -10,7 +10,7 @@ const paymentsRouter = require('./routers/paymentsRouter.js');
 const paymentControl = require('./controllers/paymentControl.js');
 const expressSession = require('express-session');
 const flash = require('connect-flash');
-
+const ejs = require('ejs');
 http.Server(app);
 
 const ownersRouter = require('./routers/ownersRouter');
