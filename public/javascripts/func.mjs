@@ -27,7 +27,7 @@ try {
         description: "Test Transaction",
         image: "https://media.licdn.com/dms/image/v2/D4D03AQH0LObLN3v7gg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1730658994521?e=1736380800&v=beta&t=o-ezc7glyxqoGdIU4bGZ0llJBfeIet_OUsEFsfb-1Tk",
         order_id: order,
-        callback_url: "http://192.168.251.13:5200/users/paymentVerification",
+        callback_url: "https://scatchkart.onrender.com/users/paymentVerification",
         prefill: {
             name: "Gaurav Kumar",
             email: "gaurav.kumar@example.com",
