@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const dbgr = require("debug")("development:mongoose");
 const config = require('config');
 mongoose
-.connect(`${config.get("mongodb://127.0.0.1:27017")}/ScatchProject`)
+.connect(`${config.get("mongodb+srv://Shahnawaj_Rangrej:<Kohinoor@0595>@scatchkart.tkur8.mongodb.net/?retryWrites=true&w=majority&appName=ScatchKart")}/ScatchProject`)
 .then(function(){
     dbgr("connect");
     
