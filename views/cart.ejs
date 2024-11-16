@@ -85,6 +85,7 @@
 </div>
 </div>
 </div>
+<% }else { %>
    <!-- new adress end here -->
            <!-- e.se header -->
                 <div id="foram1" class="w-full  items-center hidden      h-screen  md:m-auto mt-4    absolute   ">
@@ -101,7 +102,7 @@
    
 </div>
            
-               
+               <form   action="/adress" method="post"  class="flex flex-wrap justify-center items-center  w-full h-full gap-8">
                 <input   class="w-full   outline-none bg-transparent text-start ml-8 text-zinc-200  pl-4  text-lg  font-serif font-light  rounded-3xl mt-4"  type="text" required  placeholder="Your Name" name="fullname" id="">
                 <input   class="w-full   outline-none bg-transparent text-start ml-8 text-zinc-200  pl-4  text-lg  font-serif font-light  rounded-3xl " type="text" required  placeholder="Address line 1" name="adressLine1">
                 <input   class="w-full   outline-none bg-transparent text-start ml-8 text-zinc-200  pl-4  text-lg  font-serif font-light  rounded-3xl " type="text"   placeholder="Address line 2" name="adressLine2">
