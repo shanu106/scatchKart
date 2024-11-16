@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css" integrity="sha512-6p+GTq7fjTHD/sdFPWHaFoALKeWOU9f9MPBoPnvJEWBkGS4PKVVbCpMps6IXnTiXghFbxlgDE8QRHc3MU91lJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body  class=" bg-zinc-800">
+   <main class="w-full   h-screen   bg-zinc-800 text-zinc-400 font-bold">
+  
+<!-- this is for offer code  -->
+    <div>
+        <div id="con1" class="   text-sm w-full  text-center">Use code BACKPACKSALE for 10% off all backpacks</div>              <!-- this is for offer code  -->
+    
+    <div id="con2" class="w-full    border-b-[0.5px] border-zinc-600 h-28 flex items-center ">
+       
+        <i class="ri-briefcase-line text-zinc-400 w-8  py-0 h-8 ml-4 text-center leading-8 text-4xl "></i>
+        <h3 class="w-3/4 ml-24  text-xl flex text-zinc-300 flex-wrap"><span class="w-full">Explore Our </span> <span>ScatchKart</span></h3>
+       <div class=" w-2/3 h-full   md:flex justify-evenly items-center hidden ">
+        <a     <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+            <% if(!Admin){ %>
+             <% if(loggedin){  %>
+                 href="/shop"
+                     <%  } %>
+                     <% } %>
+                 href="/">
+            <i class="ri-home-5-line"></i>
+            Home</a>
+          <a  <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+       <% if(!Admin){ %>
+        <% if(loggedin){  %>
+            href="/cart"
+                <%  } %>
+                <% } %>
+            href="/login">
+            <i class="ri-shopping-cart-line"></i>
+            Cart</a>
+          <a  <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+       <% if(!Admin){ %>
+        <% if(loggedin){  %>
+            href="/users/orders/<%=user._id%>"
+                <%  } %>
+                <% }  %>
+            href="/login">
+            <i class="ri-luggage-cart-line"></i>
+            Orders</a>
+          <a  <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+       <% if(!Admin){ %>
+        <% if(loggedin){  %>
+            href="/users/myprofile/<%=user._id%>"
+            <i class="ri-id-card-line"></i>
+            Profile</a>
+        
+                <% } else { %>
+
+            href="/login">
+            <i class="ri-id-card-line"></i>
+            Login / SignUp</a>
+            <% } %>
+            <% } %>
+       </div>
+      
+    </div>
+    </div>

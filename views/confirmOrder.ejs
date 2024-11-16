@@ -1,0 +1,90 @@
+
+<%- include('./partials/header') %>
+
+
+
+
+
+<div  class="w-full h-screen   flex justify-space-around flex-wrap mt-22">
+<h1 class="w-full text-center  h-8 text-2xl " >Orders List</h1>
+  <div class="w-full h-screen  justify-center flex items-center" >
+    <div class="md:w-1/2 w-full  h-1/3 flex-wrap justify-center flex">
+        <table class="border-2 border-zinc-500 text-center  w-full m-0 md:ml-4 h-2 ">
+    
+            <tr class=" border-2 border-zinc-500" >
+                <th class=" border-2 border-zinc-500">sr no</th>
+                <th>Product name</th>
+                <th class=" border-2 border-zinc-500">Quantity</th>
+                <th>price</th>
+               
+            </tr>
+            <%  let count = 1; %>
+            <% let grandtotal = {} %>
+                    <%let sum = 0;  %>
+            <% orders.forEach(function (order){   %>
+                <%   const counts={}; %>
+                <%  user.cart.forEach(item => { %>
+                <%      counts[order.id] = 0; %>
+                <%      grandtotal[order.id] = 0; %>
+                <%  }) %>
+              
+            <%user.cart.forEach(product=>{ %>
+            <%   if(user.cart.includes(product)){ %>
+                <%   counts[product]++; %>
+                <%  } else { %>
+                    <%   counts = 1 ; %>
+                <%   } %>
+            <%}) %>
+            <%   grandtotal[order] = (order.price-order.discount)*counts[order._id]+20   %>
+            <% sum = Object.values(grandtotal).reduce((total, value) => total + value, 0); %>
+         
+       
+            <tr class=" border-2 border-zinc-500 ">
+                <td class=" border-2 border-zinc-500"  ><%= count %></td>
+                <td class=" border-2 border-zinc-500"><%=order.name %></td>
+                <td class=" border-2 border-zinc-500"> <%= counts[order._id] %></td>
+                <td class=" border-2 border-zinc-500"> ₹ <%= (order.price - order.discount )*counts[order._id]+(count*20)%></td>
+              
+            </tr>
+        <%  count++; %>
+            <%}) %>
+          <tr>
+            <td ></td>
+            <td class="text-start border-zinc-500">Grand total</td>
+           <% let i = 0; %>
+      
+        <td class="border-2 border-zinc-500"><%= orders.length%></td>
+        
+            <td class="border-2 border-zinc-500" ><%= sum %></td>
+          </tr>
+        </table>
+      
+       
+        <form id="myForm" method="post">
+            <input hidden value="<%=createdOrder.orderid%>" type="text"  id="name" name="name" >
+               
+            <button  class="bg-blue-500 text-xl md:py-0 h-auto  px-2  rounded-md  text-white" id="jpbtn">Pay Now</button> 
+                </div>
+               
+            
+        </form>
+  </div>
+    
+</div>
+
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script type="module" src="/javascripts/func.mjs"></script>
+<script>
+
+    function hide(){
+        document.getElementById("foram").style.display="none";
+    }
+    function show(){
+        document.getElementById("foram").style.display="flex";
+    }
+</script>
+ 
+  
+<%- include('./partials/footer') %>

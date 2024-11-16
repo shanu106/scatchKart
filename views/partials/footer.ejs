@@ -1,0 +1,67 @@
+</main>
+<nav class="w-full flex md:hidden  h-16 fixed bottom-0 bg-zinc-300">
+ 
+    <div class="h-full w-1/4 flex justify-center items-center flex-wrap p-2">
+        <a 
+        <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+       <% if(!Admin){ %>
+        <% if(loggedin){  %>
+            href="/shop"
+                <%  } %>
+                <% } %>
+            href="/"><div class="w-full h-3/4 flex flex-wrap justify-center text-lg text-zinc-900">
+            <i class="ri-home-5-line"></i>
+            <h5 class="w-full text-center ">Home</h5>
+        </div></a>
+    </div>
+    <div class="h-full w-1/4 flex justify-center items-center flex-wrap p-2">
+        <a <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+            <% if(!Admin){ %>
+             <% if(loggedin){  %>
+                 href="/cart"
+                     <%  } %>
+                     <% } %>
+                 href="/Login"><div class="w-full h-3/4 flex flex-wrap justify-center text-lg text-zinc-900">
+            <i class="ri-shopping-cart-line"></i>
+            <h5 class="w-full text-center ">Cart</h5>
+        </div></a>
+    </div>
+    <div class="h-full w-1/4 flex justify-center items-center flex-wrap p-2">
+        <a  <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+       <% if(!Admin){ %>
+        <% if(loggedin){  %>
+            href="/users/orders/<%=user._id%>"
+                <%  } %>
+                <% } %>
+            href="/login"><div class="w-full h-3/4 flex flex-wrap justify-center text-lg text-zinc-900">
+            <i class="ri-luggage-cart-line"></i>
+            <h5 class="w-full text-center ">Orders</h5>
+        </div></a>
+    </div>
+    <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+    
+    <% if(!Admin){ %>
+        <% if(loggedin){  %>
+            <div class="h-full w-1/4 flex justify-center items-center flex-wrap p-2">
+                <a href="/users/myprofile/<%=user._id %>"
+                    <div class="w-full h-3/4 flex flex-wrap justify-center text-lg text-zinc-900">
+                        <i class="ri-id-card-line "></i>
+                        <h5 class="w-full text-center ">My Profile</h5>
+                        
+                        <% } %>
+                        <% } else { %>
+                            <div class="h-full w-1/4 flex justify-center items-center flex-wrap p-2">
+               <a href="/Login"><div ondblclick="adminshow()" class="w-full h-3/4 flex flex-wrap justify-center text-lg text-zinc-900">
+                    <i class="ri-id-card-line"></i>
+                    <h5 class="w-full text-center ">Login</h5>
+                </div></a>
+                <%  } %>
+            </div></a>
+    
+    </nav>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<%- include('./partials/header') %>
+
+
+
+<div id="admin" class="w-full h-screen hidden absolute  py-32 px-20">
+    <div class="md:w-full w-full   flex items-center justify-center h-screen">
+        <div class="md:w-1/2 w-full px-4 bg-zinc-600 rounded-3xl md:h-1/2 h-1/3 md:px-32">
+            <i onclick="adminhide()" class="fa-solid fa-x mark text-red-700 text-2xl ml-2 text-end w-full  px-4 pt-2  rounded-[50%] cursor-pointer "></i>
+            <h4 class="text-2xl font-serif  text-blue-500 capitalize mb-10">Admin Access</h4>
+            <form action="/owners/login" method="post">
+                <input class="block bg-transparent text-zinc-200 font-light font-serif w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
+                    type="email" placeholder="Email" name="email">
+                <input class="block bg-transparent text-zinc-200 font-light font-serif w-full px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
+                    type="password" placeholder="Password" name="password">
+                <input class="px-5 rounded-full py-3 mt-2 bg-blue-500 text-white" type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+</div>
+  
+
+    <% if(change.length > 0 ){ %>
+            <div class="md:absolute hidden md:flex  top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md border-x-orange-400">
+                <span class="inline-block mt-1 mb-1 text-white">
+                    <%= change %>
+                                </span>
+            </div>
+    <% } %>
+    <% if(userExists.length > 0 ){ %>
+        <div class="md:absolute md:flex hidden   top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-purple-500 border-x-orange-400">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= userExists %>
+            </span>
+        </div>
+        <% } %>
+    <% if(loginErr.length > 0 ){ %>
+        <div class="md:absolute md:flex hidden   top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-purple-500 border-x-orange-400">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= loginErr %>
+            </span>
+        </div>
+        <% } %>
+    
+ 
+
+            <div id="Top" class="w-full h-full bg-zinc-800 md:h-screen md:flex md:overflow-y-hidden     items-center justify-center   ">
+                <!-- <div class="w-full h-1/3 "></div> -->
+                <div class=" w-full  md:flex  md:items-center    items-center justify-around  h-full md:h-full"> 
+                    <% if(loginErr.length > 0 ){ %>
+                      
+
+                            <div class="absolute md:hidden flex w-full h-1/6  top-5 left-1/2 -translate-x-1/2 -translate-y-5 p-3 rounded-md ">
+                                <span class="inline-block mt-1 mb-1 text-center bg-red-600 px-2 w-full rounded-md leading-10 text-xl  h-14  text-white"><%= loginErr %></span>
+                                 
+                            </div>
+                       
+                <% } %>
+                    <div class="w-full flex flex-wrap justify-center    h-full px-2  ">
+                    <!-- here -->
+                    <div id="log" class="w-full h-full  px-2 flex flex-wrap    mt-8  ">
+                       
+                        <div class="w-full h-1/5 flex   flex-wrap ">
+                            <h3 class=" text-3xl  font-serif md:text-4xl text-zinc-200   w-full">welcome to <span onclick="adminshow()" class="text-blue-400 font-mono font-bold">ScatchKart</span></h3>
+                            <h4 class="text-2xl text-zinc-200 w-full text-center mt-10   font-serif ">Login your account</h4>
+                        </div>
+                        <form autocomplete="off" class="w-full flex flex-wrap flex-row md:flex-col justify-center text-zinc-200 font-extralight   items-center h-1/3 mb-60 md:mb-0  md:-mt-56 py-4" action="/users/login" method="post">
+                            <input
+                                class="bg-transparent block  w-full md:w-1/2 px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
+                                type="email" placeholder="Email" name="email">
+                                <% if(loginErr.length > 0 ){ %>
+                                    <label class="text-base font-serif mt-0 md:hidden flex text-red-700" for="email">Email Or password is incorrect</label>
+                                    <% } %>
+                            <input
+                                class="bg-transparent block  md:w-1/2 w-full mt-8 px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
+                                type="password" placeholder="Password" name="password">
+                                
+                                <% if(loginErr.length > 0 ){ %>
+                                    <label class="text-base font-serif mt-0 md:hidden flex text-red-700" for="password">Email Or password is incorrect</label>
+                                    <% } %>
+                                    <br>
+                            <input class="px-5 block rounded-full hover:bg-blue-700 bg-blue-500 md:mt-16 cursor-pointer md:-ml-40   py-3 mt-2 text-white" type="submit"
+                                value="Login">
+                                <a class="text-2xl text-blue-600 mt-4 pl-4 font-extralight font-serif ml-4 md:hidden" href="#top1">Create New Account</a>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                <div class=" w-full flex-wrap flex items-center bg-zinc-800  md:mt-0 justify-center h-screen  md:1/2 md:h-screen">
+                    
+                    <div class="w-full h-1/5 flex justify-center    flex-wrap ">
+                        <h3 class=" text-3xl  font-serif md:text-4xl text-center text-zinc-200  md:hidden  w-full">welcome to <span class="text-blue-400 font-mono font-bold">ScatchKart</span></h3>
+                        <h4 class="text-2xl text-zinc-200 w-full text-center mt-10   font-serif ">Create New Account</h4>
+                    </div>
+                    <form autocomplete="off" id="top1" action="/users/register" class="w-3/4 h-1/2  text-zinc-200 font-extralight flex-col md:h-auto flex  flex-wrap  md:-mt-28 items-center "  method="post">
+                       
+                        <input required
+                            class=" block bg-transparent w-full px-3 py-2  border-[1px] rounded-md mb-8 md:w-3/4 border-zinc-200d "
+                            type="text" placeholder="Full Name" name="fullname">
+                            <% if(userExists.length > 0){ %>
+                                <label class="text-base font-serif -mt-6  flex text-red-700" for="email">Email is Exists already</label>
+                                <% } %>
+                        <input required
+                            class=" bg-transparent block w-full px-3 py-2 border-[1px] rounded-md mb-8 md:w-3/4 border-zinc-200"
+                            type="email" placeholder="Email" name="email">
+                         
+                        <input required
+                            class=" bg-transparent block w-full px-3 py-2 border-[1px] rounded-md mb-8 md:w-3/4 border-zinc-200"
+                            type="password" placeholder="Password" name="password">
+                        <input class="px-5 rounded-full py-3 mt-2 bg-blue-500 md:mb-44 mb-8 hover:bg-blue-700 cursor-pointer text-white" type="submit"
+                            value="Create Account">
+                            <a 
+                            " class="text-2xl  active:text-purple-700 text-blue-600 ml-4 md:hidden font-serif"  href="#log">Already Have an Account</a>
+                    </form>
+                </div>
+            
+        </div> 
+        <script>
+            function adminhide(){
+                document.getElementById('admin').style.display="none"
+            }
+            function adminshow(){
+                document.getElementById('admin').style.display="flex"
+            }
+   
+        </script>
+      
+            <%- include('./partials/footer') %>

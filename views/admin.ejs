@@ -1,0 +1,42 @@
+
+<%- include('./partials/header') %>
+
+
+    <div class="w-full h-full flex flex-wrap md:relative absolute justify-center ">
+        <div class=" w-full md:w-1/4 flex md:h-full flex-col  items-start">
+            <div class="flex flex-row justify-between mt-0 md:mt-20 px-4    w-full md:flex-col">
+                <a class="bg-blue-500 md:mt-4 m-0 text-center md:text-2xl px-2 py-2 rounded-3xl text-base font-light text-zinc-200 md:" href="/owners/products"> Products</a>
+                <a class="bg-blue-500 md:mt-4 m-0 text-center md:text-2xl px-2 py-2 rounded-3xl text-base font-light text-zinc-200 md:" href="/owners/productC">Create product</a>
+                <a class="bg-blue-500 md:mt-4 m-0 text-center md:text-2xl px-2 py-2 rounded-3xl text-base font-light text-zinc-200 md:" href="/owners/usersdata">Users data</a>
+            </div>
+        </div>
+        <div class="md:w-[70%] w-full md:ml-4 m-0   justify-start gap-5 flex flex-wrap    h-full">
+            <a class="text-red-500 w-full" href="">Delete all</a>
+            <% products.forEach(function(product){ %>
+            <div class="flex flex-wrap md:w-1/4 w-full  rounded-xl  ">
+            <div class="w-full md:h-70 h-  flex md:flex-col flex-row">
+                    <div class="md:w-full w-1/2  h-52 flex rounded-3xl rounded-r-none md:rounded-b-none justify-center items-center bg-[<%=product.bgcolor%>]">
+                        <img class="h-[12rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                        alt="">
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between rounded-l-none md:w-full w-1/2 md:rounded-t-none rounded-3xl bg-[<%=product.panelcolor%>] items-center px-4 py-4">
+                        <div class=" text-2xl md:text-base h-1/2 flex flex-wrap font-serif text-[<%=product.textcolor%>]">
+                            <h3><%=product.name %></h3>
+                            <h4>Price : ₹ <%=product.price%></h4>
+                            <h4 class="text-emerald-500">Discount : ₹ <%=product.discount%></h4>
+                        </div>
+                        <div class="w-full md:w-1/2 h-1/2  items-center justify-around  flex ">
+                            <a class="w-7 h-7 flex items-center justify-center rounded-full bg-yellow-500 text-[<%=product.textcolor %>]" href="/owners/productEdit/<%=product._id %>">
+                                <i class="ri-pencil-fill"></i>
+                            <a class="w-7 h-7 flex items-center justify-center rounded-full bg-red-500 text-[<%=product.textcolor %>]" href="/owners/delete/<%=product._id %>">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+               <% }) %>
+               <div class="w-full  bottom-0 flex m  h-20 "></div>
+    </div>
+</div>
+    <%- include('./partials/footer') %>

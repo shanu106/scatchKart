@@ -1,0 +1,168 @@
+
+<%- include('./partials/header') %>
+  <!-- page 1 start here  -->
+  <div id="page1" class="w-full h-full ">
+    <div id="super1" class="w-full h-full flex flex-wrap justify-center ">
+<div id="con3"  class="w-full h-1/3  flex justify-center items-center">
+    <div id="img" class="w-[60%]  h-[90%]  flex justify-center  rounded-3xl">
+        <img src="/images/4bag.png" class="w-40 h-40 object-contain" alt="Backpack img" srcset="">
+    </div>
+</div>
+<div id="con4" class="w-full h-1/6  ">
+    <h3 class="w-full text-xl text-zinc-300 flex flex-wrap justify-center items-center"><span class="w-full text-center text-4xl font-serif">Welcome To</span><span class="w-full text-center text-4xl text-blue-500 font-serif">ScatchKart</span></h3>
+</div>
+<div id="con5" class="w-full md:w-1/3 h-1/5  px-6 bg ">
+    <p class="text-lg text-zinc-300">
+        Discover a wide range of backpacks designed for all your adventures. From sleek urban styles to rugged outdoor gear, we have the perfect backpack for every journey.
+    </p>
+</div>
+<div id="con6" class="w-full h-auto   flex justify-center items-start ">
+    <a  <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+            <% if(!Admin){ %>
+             <% if(loggedin){  %>
+                 href="/shop"
+                     <%  } %>
+                     <% } %>
+                 href="/login" class="bg-zinc-200 px-2 py-2 rounded-3xl">Discover Now</a>
+</div>
+</div>
+</div>
+<!-- page 1 end here  -->
+<!-- page 2 start here  -->
+<div id="page2" class="w-full h-full  bg-zinc-800 pt-2">
+<div id="page2top" class="w-full flex flex-wrap  md:justify-around justify-evenly m-0  items-center h-1/4 ">
+    <div class="h-[70%] w-[45%] flex flex-wrap items-center" id="productImg1">
+        <div class="w-full md:w-1/4 md:h-full  h-3/4 rounded-3xl">
+            <img src="images/1bag.png" class="w-full h-full rounded-3xl  object-contain" alt="" srcset="">
+        </div>
+        <h1 class="md:text-xl text-lg  w-full text-center md:text-start  md:w-full -mb-1 text-zinc-400">Clinge Backpack</h1>
+    </div>
+    <div class="h-[70%] w-[45%] flex flex-wrap items-center" id="productImg1">
+        <div class="w-full md:w-1/4 md:h-full  h-3/4 rounded-3xl">
+            <img src="images/5bag.png" class="w-full h-full rounded-3xl  object-contain" alt="" srcset="">
+        </div>
+        <h1 class="md:text-xl text-lg  w-full text-center md:text-start  md:w-full -mb-1 text-zinc-400">Clinge Backpack</h1>
+    </div>
+    
+</div>
+<div id="page2bottom" class="w-full h-3/4 border-b-2 border-blue-500  bg-[url('/abc.webp')] bg-cover">
+    <div class="w-full h-1/5 flex flex-wrap justify-center font-mono items-center">
+        <h3 class="w-full text-center md:text-4xl text-3xl  mt-3 border-t-2 border-zinc-700 text-zinc-100">Just Arrived !</h3>
+        <!-- <h3 class="w-full text-center md:text-3xl text-2xl -mt-9  text-zinc-100">Check Out our latest arrivals</h3> -->
+    </div>
+    <div class="w-full md:h-2/3  h-4/5 flex justify-center items-center ">
+        <div class="w-3/4 md:w-1/4 flex flex-wrap justify-center items-center bg-zinc-700 md:bg-transparent h-[95%]  p-6 rounded-3xl">
+            <div class="md:w-3/4 w-full md:h-2/3 h-1/2 border-2 rounded-3xl">
+                <img class="w-full h-full object-contain" src="images/image 80.png" alt="">
+            </div>
+            <div class="w-full md:h-3/4 h-1/2 flex flex-wrap items-start justify-center ">
+                <h2 class="w-full text-center text-bold  text-xl mt-1  font-serif text-zinc-300">Outdoor Adventure </h2>
+                <p class="text-sm px-4 font-serif flex md:hidden   w-full text-zinc-300 text-center">
+                    This durable backpack is your perfect companion for hiking, camping, and outdoor adventures. With multiple compartments and padded straps, it ensures comfort and convenience on the go.
+                </p>
+                
+<a class=" bg-zinc-200 text-zinc-700 px-2 py-2 -mb-1 rounded-3xl "  <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+            <% if(!Admin){ %>
+             <% if(loggedin){  %>
+                 href="/shop"
+                     <%  } %>
+                     <% } %>
+                 href="/login">Shop Now</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- page 2 end here  -->
+<div id="page3" class="w-full h-full bg-zinc-900 flex flex-wrap ">
+<div id="con31" class="w-full h-1/3  p-6 flex flex-wrap justify-center">
+    <h3 class="w-full text-center md:text-3xl text-2xl text-zinc-300 font-mono ">Loves Our Backpacks ?</h3>
+    <p class="w-full md:w-2/3 text-center md:text-2xl  text-lg font-serif text-zinc-200 font-light">Subscribe to our newsletter for exclusive deals and updates on the latest backpack trends. Be the first to know about new arrivals and limited edition collections.</p>
+</div>
+<div id="con32" class=" w-full h-1/3 md:h-1/2 mr-0 flex flex-wrap justify-evenly items-center ">
+   
+    <div class="w-1/4 md:w-1/5 h-[20%] m-0 md:ml-24  flex flex-wrap justify-center items-center ">
+        <div class="w-3/4 h-1/2"><a  <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+            <% if(!Admin){ %>
+             <% if(loggedin){  %>
+                 href="/shop"
+                     <%  } %>
+                     <% } %>
+                 href="/login"> <i class="ri-mail-line text-5xl rounded-3xl bg-zinc-400 text-zinc-800 p-4"></i></a></div>
+        <div class="w-3/4 p-6  h-1/2 "></div>
+    </div>
+    <div class="w-1/4 md:w-1/5 h-[20%]  flex flex-wrap justify-center items-center ">
+        <div class="w-3/4 h-1/2"><a  <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+            <% if(!Admin){ %>
+             <% if(loggedin){  %>
+                 href="/shop"
+                     <%  } %>
+                     <% } %>
+                 href="/login"><i class="ri-notification-4-line rounded-3xl text-5xl bg-zinc-400 text-zinc-800 p-4"></i></a></div>
+        <div class="w-3/4 p-6  h-1/2"></div>
+    </div>
+    <div class="w-1/4 md:w-1/5 h-[20%]  flex flex-wrap justify-center  items-center ">
+        <div class="w-3/4 h-1/2"><a  <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+            <% if(!Admin){ %>
+             <% if(loggedin){  %>
+                 href="/shop"
+                     <%  } %>
+                     <% } %>
+                 href="/login"><i class="ri-star-line text-5xl bg-zinc-400 rounded-3xl text-zinc-800 p-4"></i></a></div>
+        <div class="w-3/4 p-6  h-1/2"></div>
+    </div>
+   <div class="w-full h-auto flex-wrap flex items-center justify-center">
+    <a class="bg-zinc-200 rounded-3xl text-zinc-800 md:p-4 p-2" href="/login">Join Now</a>
+    <a class="w-full text-center mt-4 text-xl md:text-3xl font-light font-serif " href="/login"> Already have an account</a>
+   </div>
+</div>
+<div id="con33" class="w-full flex md:hidden h-1/3 p-8 ">
+    <div class="w-full h-full rounded-3xl border-2"></div>
+</div>
+</div>
+
+<div id="page4" class="w-full overflow-hidden h-full bg-zinc-700 ">
+<div class="w-full h-1/3 pt-3 flex flex-wrap justify-center ">
+    <h3 class="w-full h-1/3  text-4xl text-center text-zinc-300 font-serif ">Top Picks</h3>
+    <p class="w-full md:w-1/2 h-2/3 text-center font-mono px-5 text-lg md:text-xl  text-zinc-200">Discover our top-rated backpacks loved by adventurers worldwide. Our collection features premium materials, ergonomic designs, and versatile styles to suit your every need. Start your next journey with BackpackBazaar today.</p>
+</div>
+<div class="w-full h-auto my-6 md:my-8  flex justify-center">
+    <a class="p-4 bg-zinc-200 rounded-3xl text-zinc-700 " href="#">Explore Now</a>
+</div>
+<div class="w-full h-3/5 flex items-center">
+    <div class="h-full w-[10%] md:w-1/3 flex justify-center items-center"><a  <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+            <% if(!Admin){ %>
+             <% if(loggedin){  %>
+                 href="/shop"
+                     <%  } %>
+                     <% } %>
+                 href="/login"><i class=" text-2xl text-zinc-200 ri-arrow-left-line"></i></a></div>
+    <div class="h-[93%] md:w-1/3 w-[80%] p-5 ">
+        <div class="w-full  p-4 h-full rounded-3xl border-2  border-zinc-800">
+            <div  class="w-full h-full flex flex-wrap justify-center ">
+                
+            <img src="images/4bag.png" class="w-full h-1/2 object-contain rounded-3xl" alt="" srcset="">
+            <a class="bg-blue-500 p-2 h-12 rounded-3xl lined-12 leading-8 text-zinc-200" href="#">₹ 1500</a>
+            <h3 class="w-full text-xl text-zinc-300  text-center font-serif">Pink Attack</h3>
+            <p class="text-sm  font-mono">Durable and Versatile Design</p>
+            </div>
+        </div>
+    </div>
+    <div class="h-full w-[10%] md:w-1/3  flex justify-center items-center"><a  <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+        
+            <% if(!Admin){ %>
+             <% if(loggedin){  %>
+                 href="/shop"
+                     <%  } %>
+                     <% } %>
+                 href="/login"><i class=" text-2xl text-zinc-200 ri-arrow-right-line"></i></a></div>
+</div>
+</div>
+
+<%- include('./partials/footer') %>

@@ -1,0 +1,88 @@
+
+<%- include('./partials/header') %>
+<%   if(added.length > 0){ %>
+
+   
+    <div class="md:absolute md:flex hidden top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
+        <span class="inline-block mt-1 mb-1 text-white">
+      <%= added %>    
+        </span>
+    </div>
+
+<% } %>
+<%   if(added.length > 0){ %>
+    <div class="w-full h-auto md:hidden fixed  top-96 mt-80 flex items-center justify-center">
+        
+    <p class="w-3/4 h-auto md:hidden flex text-xl font-extralight  pl-16 rounded-md bg-zinc-600 text-zinc-900"><%= added %></p>
+    </div>
+    <% } %>
+<div class="md:absolute hidden     top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
+    <span class="inline-block mt-1 mb-1 text-white">
+       Hey ! <%= user.fullname%> How are You ?
+                    </span>
+</div>
+    <div class="w-full md:justify bg-zinc-800   md:h-screen md:flex items-start md:px-10  p-0 md:py-20">
+        <div class="md:w-[20%] w-full mt-10 md:m-0 bg-zinc-800  md:flex flex-wrap md:h-screen h-28 md:flex-col  items-start">
+            <div class="md:flex items-center hidden gap-2">
+                <h3>sort by</h3>
+                <form action="/shop">
+                    <select class="border-[1px] px-2 py-1" name="sortby" id="">
+                        <option value="popular">Popular</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </form>
+            </div>
+            <div class="flex flex-row md:flex-col bg-zinc-800 md:mt-20">
+                <div class=" flex flex-wrap items-center flex-col bg-zinc-800 justify-around h-20   md:h-auto w-full">
+                    <a class="md:block  hidden md:w-full mb-2" href="/not">Add Product</a>
+              
+                    <a class="md:block md:w-full md:h-auto h-12 border-2 md:border-none   py rounded-full md:leading-normal px-2 text-sm  leading-10  mb-2" href="/shop">New Collection</a>
+               
+                <a class="md:block md:w-full md:h-auto h-12 border-2 md:border-none leading-10  md:p-0 px-2 py rounded-full text-base w-auto md:leading-normal mb-2" href="/shop">All Products</a>
+                <a class="md:block md:w-full md:h-auto h-12 border-2 text-base md:border-none leading-10 md:leading-normal md:p-0 px-2 py rounded-full mb-2" href="/shop">Discounted Products</a>
+               </div>
+               
+               </div>
+            <div class="md:mt-32 w-full md:justify-start   m-0 flex md:flex-wrap justify-around">
+                <label class="font-serif text-xl m-0 md:mb-8 text-zinc-400" for="filter">Filter by : </label>
+                
+                <a id="filter" class="md:block md:w-full border-2 md:border-none font-extralight text-zinc-300  md:p-0 px-2 py-1 rounded-full mb-2" href="/shop">Availability</a>
+                <a class="md:block md:w-full border-2 md:border-none font-extralight text-zinc-300  md:p-0 px-2 py-1 rounded-full mb-2" href="/shop">Discount</a>
+            </div>
+        </div>
+        <div class="md:w-[90%] md:flex-row flex-col  md:flex md:flex-wrap  flex justify-between    gap-5 h-screen">
+            <div class="md:w-full md:flex md:justify-around md:flex-row flex-col flex  mt-4  flex-wrap">
+               <% products.forEach(function(product){ %>
+                    <div class="w-full flex md:w-1/4 md:block rounded-3xl md:ml-4 md:mt-4 ml-4 mt-4   bg-[<%= product.bgcolor %>]" >
+                        <div class="md:w-full w-1/2 h-full md:h-3/4 flex items-center justify-center">
+                            <img class="h-[12rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                                alt="">
+                        </div>
+                        <div
+                            class="flex justify-between rounded-r-3xl md:rounded-b-3xl md:w-full  h-full w-1/2 md:h-1/4 bg-[<%= product.panelcolor %>]  items-center px-4 py-4 ">
+                            <div>
+                                <h3 class="text-2xl md:text-lg text-[<%=product.textcolor %>]">
+                                 <%= product.name %>
+                                </h3>
+                                <% if(product.discount >0){ %>
+                                    <h4 class=" line-through text-[<%=product.textcolor %>]">MRP : ₹ <%= product.price %> </h4> 
+                                    <h4 class="  text-[<%=product.textcolor %>]">Offer Price : ₹ <%=product.price- product.discount %> </h4> 
+                                
+                                <% } else { %>
+                                    <h4 class=" text-[<%=product.textcolor %>]">₹ <%= product.price %> </h4> 
+
+                                    <% } %>
+                            </div>
+                            <a class="w-7 h-7 flex items-center   border-black justify-center rounded-full bg-[<%= product.bgcolor %>] text-[<%= product.panelcolor %>] " href="/addtocart/<%= product._id %>">
+                                <i class="fa-solid fa-plus "></i>
+                            </a>
+                        </div>
+                    </div>
+                <% }) %>
+                <div class="w-full  bottom-0 flex m  h-20 "></div>
+            </div>
+        </div>
+    </div>
+    
+
+    <%- include('./partials/footer') %>

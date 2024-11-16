@@ -1,0 +1,61 @@
+<%- include('./partials/header') %>
+
+     <%   if(sucess.length > 0){ %>
+        <div class="w-full flex justify-center mb-8">
+            <div class=" top-5 left-1/2  p-3 rounded-md bg-red-500">
+                <span class="inline-block mt-1 mb-1 text-white">
+              <%= sucess %>    
+                </span>
+            </div>
+        </div>
+ 
+<% } %>
+
+            <div class="h-full w-full ">
+                <div class="container md:px-10 p-0 md:py-20 flex flex-wrap md:flex-nowrap  ">
+        <!-- side panel  -->
+                    <div class=" w-full md:w-1/4 flex h-1/4 md:h-screen flex-col items-start">
+                        <div class="flex flex-row justify-between w-full md:flex-col">
+                            <a class="bg-blue-500 md:mt-4 m-0 text-center md:text-2xl px-2 py-2 rounded-3xl text-base font-light text-zinc-200 md:" href="/owners/products"> Products</a>
+                            <a class="bg-blue-500 md:mt-4 m-0 text-center md:text-2xl px-2 py-2 rounded-3xl text-base font-light text-zinc-200 md:" href="">Create product</a>
+                            <a class="bg-blue-500 md:mt-4 m-0 text-center md:text-2xl px-2 py-2 rounded-3xl text-base font-light text-zinc-200 md:" href="/owners/usersdata">Users data</a>
+                        </div>
+                    </div>
+                    <main class="md:w-3/4 w-full  p-8 shadow ml-4">
+                        <h2 class="text-xl font-bold mb-4">Create New Product</h2>
+                        <form autocomplete="off" action="/products/create" method="post" enctype="multipart/form-data">
+                            <div class="mb-6">
+                                <h3 class="text-2xl font-serif text-zinc-300 border-b-2 border-zinc-500 font-semibold mb-2">Product Details</h3>
+                                <div class="mb-4">
+                                    <label class="block text-zinc-400 font-mono text-xl  mb-2 font-medium">Product Image</label>
+                                    <input name="image" type="file" class="py-2 px-4 md:w-auto w-full rounded" value="Select File">
+                                </div>
+                                <div class="grid grid-rows-3 md:grid-cols-2 gap-4">
+                                    <input name="name" type="text" placeholder="Product Name"
+                                        class="bg-transparent font-light font-serif border-zinc-400 text-zinc-200 border p-2 rounded w-full">
+                                    <input name="price" type="text" placeholder="Product Price"
+                                        class="bg-transparent font-light font-serif border-zinc-400 text-zinc-200 border p-2 rounded w-full">
+                                    <input name="discount" type="text" placeholder="Discount Price"
+                                        class="bg-transparent font-light font-serif border-zinc-400 text-zinc-200 border p-2 rounded w-full">
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-2xl font-serif text-zinc-300 border-b-2 border-zinc-500  font-semibold mb-2">Panel Details</h3>
+                                <div class="grid grid-rows-2 md:grid-cols-2 gap-4">
+                                    <input name="bgcolor" type="text" placeholder="Background Color"
+                                         class="bg-transparent font-light font-serif border-zinc-400 text-zinc-200 border p-2 rounded w-full">
+                                    <input name="panelcolor" type="text" placeholder="Panel Color"
+                                         class="bg-transparent font-light font-serif border-zinc-400 text-zinc-200 border p-2 rounded w-full">
+                                    <input name="textcolor" type="text" placeholder="Text Color"
+                                         class="bg-transparent font-light font-serif border-zinc-400 text-zinc-200 border p-2 rounded w-full">
+                                </div>
+                            </div>
+                            <input class="px-5 py-2 rounded mt-3 bg-blue-500 text-white" type="submit"
+                                value="Create New Product">
+                        </form>
+                    </main>
+                </div>
+            </div>
+            <div class="w-full  bottom-0 flex m  h-16 md:hidden "></div>
+            <%- include('./partials/footer') %>

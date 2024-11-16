@@ -1,0 +1,146 @@
+<%- include('./partials/header') %>
+
+    
+ <div>
+    <h1  class=" md:-mt-8 text-xl text-center  *:text-zinc-50 md:text-4xl px-2 py-2 rounded-xl text-zinc-300 font-light font-serif   bg-zinc-500">My Orders</h1>
+
+    <% if(user.order.length>0){ %>
+   
+     <% orderconfirm.forEach(confirm=>{ %>
+     <!-- // orederid, orders , date, payment id  -->
+    
+<div class="w=full h-full flex-col  *:font-serif md:flex-row  flex flex-wrap">
+
+ <div class="md:h-full h-1.2 w-full   md:w-1/2 flex  justify-center md:justify-start  flex-wrap mt-8 border-r-2  ">
+     <% const displayeded = new Set(); %>
+
+ 
+     <% confirm.orders.forEach(order=>{ %>
+         <% products.forEach(product=>{%>        
+     <% if(String(order) == String(product._id)){ %>
+         <%  if ( !displayeded.has(product._id)) { %>
+             <% displayeded.add(product._id); %>
+     
+          
+          <!-- product details -->
+        <div class="w-44 h-72 flex flex-wrap    justify-around items-center ml-2 ">
+        <a href="/shop"> <img class="w-full h-full cover" src="data:image/jpeg;base64,<%=product.image.toString('base64')%>" alt=""></a>
+        <a href="/shop"><h1 class="text-2xl"><%= product.name  %></h1></a>
+        </div>
+      <%   } %>
+         <% } %>
+     <% }) %>
+                 <% }) %>
+ </div>
+ <div id="abcd" class="h-full flex-wrap justify-center w-full  md:w-1/2 flex">
+    
+    <div class="w-full flex font-light text-zinc-400 justify-center  ">
+     <h1 class="text-center text-4xl   bolder">Order Summary</h1>
+    </div>
+  
+  
+     <div class="w-[90%] h-1/3 rounded-2xl border-2 p-6    border-sky-700   mt-5  ">
+         <h3 class="w-full flex font-light text-zinc-400 items-center"><span class="w-1/2 text-lg md:text-xl bolder  text-start  ">Order Id :</span> <span class="text-end text-zinc-300 font-thin   text-lg   md:text-xl w-full "><%= confirm.orderid  %></span></h3>
+     <h3 class="w-full flex font-light text-zinc-400 items-center"><span class="w-2/3 text-lg md:text-xl bolder  text start">Payment Id :</span> <span class="text-end text-zinc-300 font-thin  text-xl w-full "><%= confirm.paymentid  %></span></h3>
+     <h3 class="w-full flex font-light text-zinc-400 items-center" ><span class="w-1/2 text-lg md:text-xl bolder  text-start">Order Date :</span><span class="text-end text-zinc-300 font-thin  text-xl w-full "> <%= confirm.date.getDate()%>/<%= confirm.date.getMonth()+1%>/<%= confirm.date.getFullYear()%> |  <%= confirm.date.getHours()%>:<%= confirm.date.getMinutes()%>:<%= confirm.date.getSeconds()%></span></h3>
+     <h3 class="w-full flex font-light text-zinc-400 items-center" ><span class="w-3/4  text-lg md:text-xl bolder  text-start">Estimate Delivery :</span><span class="text-end text-zinc-300 font-thin  text-xl  "><%= 7+confirm.date.getDate()%>/<%=1+ confirm.date.getMonth()%>/<%= confirm.date.getFullYear()%></span></h3>
+    
+
+ <% const displayed = new Set(); %>
+
+ 
+<% confirm.orders.forEach(order=>{ %>
+
+
+
+ 
+ 
+ <% products.forEach(product=>{%>
+     
+
+
+
+      
+<% if(String(order) == String(product._id)){ %>
+
+ <%  if ( !displayed.has(product._id)) { %>
+     <% displayed.add(product._id); %>
+     <% ordercount.forEach((obj, index)=>{ %>
+    
+         <% if(obj.orderId === confirm.orderid){ %>
+             
+             
+                 
+     
+     <div class="w-full  flex">
+                
+     <h3 class="w-full flex font-light text-zinc-400 items-center"><span class="w-2/3  text-lg md:text-2xl bolder  ">Product Name :</span>
+         <h3 class="flex    w-2/3 justify-center flex-wrap">
+             <span class="text-xl bolder w-1/4  text-[<%=product.textcolor  %>]"><%= obj.count[product._id]  %></span> 
+         <span class="text-xl bolder text-center w-1/4  text-[<%=product.textcolor  %>]"><i class="fa-sharp fa-solid fa-x w-1/3"></i></span>
+         <%   } %>
+         
+         
+         
+         
+         <% }) %>
+         <span class="text-xl w-1/2  text-[<%=product.textcolor  %>]"><%= product.name  %></span></h3>
+     </h3>
+
+     </div>
+ 
+
+
+
+ 
+
+<%   } %>
+ <% } %>
+<% }) %>
+
+<% }) %>
+
+         <%   orderm.forEach(order=>{ %>
+             <%   if(order.orderid === confirm.orderid){ %>
+                 
+                 <!-- order amount order date -->
+              
+                 <h3 class="w-full flex font-light text-zinc-400 items-center" class="" ><span class="w-1/2 text-xl bolder text start">Grand Total :</span> <span class="text-xl text-end w-full bolder text-green-500">₹ <%= order.totalAmount/100 %></span></h3>
+                 
+                
+             
+          <%    }  %>
+               <% orderconfirm %>
+<%     }) %>
+     </div>
+    
+     <% adresses.forEach(adress=>{%>
+         <% adress.orders.forEach(order=>{%>
+             <% if(order == confirm.orderid){%>
+   <div class=" flex flex-wrap  justify-between  items-center p-4 mt-1">
+     <div class="w-full h-5  rounded-2xl flex items-center"> <h1 class="w-full text-center text-xl md:text-2xl  text-yellow-500 font-bolder">Delivery Adress</h1></div>
+     <div class="w-full h-88 rounded 2xl  px-4  mt-22 ">
+         <h4 class="text-xl text-zinc-300 md:text-2xl font-light "><%=adress.name %>,</h4>
+         <h4 class="text-xl text-zinc-300 md:text-2xl font-light "><%=adress.contact %></h4>
+        <h1 class="text-xl text-zinc-300 md:text-2xl font-light "> <span><%=adress.adressLine1 %></span>,  <span><%=adress.adressLine2 %></span>,  <span><%=adress.city %></span>,  <span><%=adress.state %></span> ,  <span><%=adress.country %></span>,  <span><%=adress.postalCode %></span></h1>
+     </div>
+     
+   </div>
+     <%}%>
+     
+     <%  })%>
+     <div class="w-full  bottom-0  md:hidden flex  h-20 "></div>
+     <% }) %>
+ </div>    
+</div>
+<hr>         
+         <% }) %>
+     
+     <% } else { %>
+        <div class="w-full h-16  flex mt-60 justify-center items-center">
+         <h1 class="text-xl md:text-3xl text-zinc-600 font-mono">No orders yet</h1>
+        </div>
+         <% } %>
+
+ </div>
+                                <%- include('./partials/footer') %> 

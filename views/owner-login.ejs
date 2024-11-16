@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class=" font-['helvetica_now_display']">
+    <nav class="w-full fixed flex justify-between  top-0 left-0 px-5 py-3"> 
+        <h3 class="text-xl">Scatch</h3>
+        <% var loggedin = typeof loggedin !== "undefined" ? loggedin : true ; %>
+       
+       <% if(loggedin){  %>
+        <div class="flex  gap-5">
+            <a href="/shop">shop</a>
+            <a href="/cart">cart</a>
+            <a href="/users/myprofile/">my account</a>
+           
+            <a class="text-red-600" href="/users/logout">logout</a>
+        </div>
+     <%   } else { %>
+        <a href="/owners">Log in as a admin</a>
+     <%  } %>
+     
+    </nav>
+<%   if(sucess.length > 0){ %>
+    <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500">
+        <span class="inline-block mt-1 mb-1 text-white">
+      <%= sucess %>    
+        </span>
+    </div>
+
+<% } %>
+   
+   
+    <%- include('./partials/footer') %>

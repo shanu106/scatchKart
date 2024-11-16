@@ -1,0 +1,37 @@
+
+<%- include('./partials/header') %>
+
+
+    <div class="w-full h-full flex flex-wrap md:relative absolute justify-center items-center md:px-20 p-0 md:py-20">
+        <div class="md:w-[25%] w-full h-1/4 justify-center items-center flex md:h-screen flex-wrap">
+            <div class="flex flex-row w-full justify-around md:flex-col">
+                <a class="block w-fit mb-2" href="/owners/products">All Products</a>
+                <a class="block w-fit mb-2" href="/owners/productC">Create news product</a>
+                <a class="block w-fit mb-2 " href="/owners/usersdata">Users data</a>
+            </div>
+        </div>
+        <div class="md:w-[75%] w-full flex flex-wrap   h-full">
+            <a class="text-red-500 w-full" href="">Delete all</a>
+            <% order.orders.forEach(function(product){ %>
+            <div class="flex flex-wrap md:w-1/4 w-1/2  bg-blue-500 ">
+            <div class="w-full md:h-70 h-  bg-blue-500">
+                    <div class="w-full h-52 flex justify-center items-center bg-[<%=product.bgcolor%>]">
+                        <img class="h-[12rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                        alt="">
+                    </div>
+                    <div class="flex justify-between bg-[<%=product.panelcolor%>] items-center px-4 py-4">
+                        <div class="text-[<%=product.textcolor%>]">
+                            <h3><%=product.name %></h3>
+                            <h4>₹ <%=product.price%></h4>
+                        </div>
+                        <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white" href="/owners/delete">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+               <% }) %>
+       
+    </div>
+</div>
+    <%- include('./partials/footer') %>
