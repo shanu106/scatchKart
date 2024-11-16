@@ -47,7 +47,7 @@ app.get('/', (req, res)=>{
 
 
 
-app.listen(5200);
+app.listen(4000);
 
 
 //hyy
